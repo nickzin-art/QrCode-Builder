@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>795</width>
-    <height>640</height>
+    <width>727</width>
+    <height>763</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,42 +28,30 @@
 background-color: #01CDF0;
 }</string>
    </property>
-   <widget class="QPushButton" name="btn_gear">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>250</y>
-      <width>141</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>GERAR URL</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_save">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>390</y>
-      <width>141</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>SALVAR QrCode</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>580</x>
       <y>200</y>
       <width>141</width>
       <height>381</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_save">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>SALVAR QrCode</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QLabel" name="qrcode">
     <property name="geometry">
@@ -81,19 +72,11 @@ background-color: #fff;
 }</string>
     </property>
     <property name="text">
-     <string>QRCODE</string>
+     <string/>
     </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>200</y>
-      <width>761</width>
-      <height>381</height>
-     </rect>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
@@ -126,19 +109,74 @@ background-color: #fff;
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>200</y>
+      <width>169</width>
+      <height>379</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_gear">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>GERAR URL</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>795</width>
+     <width>727</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>insert_url</tabstop>
+  <tabstop>site_url</tabstop>
+  <tabstop>btn_gear</tabstop>
+  <tabstop>btn_save</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btn_gear</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_btn_gear_clicked()
+</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>496</x>
+     <y>410</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>496</x>
+     <y>362</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>clicked()</signal>
+  <slot>on_btn_gear_clicked()
+</slot>
+  <slot>slot2()</slot>
+ </slots>
 </ui>
