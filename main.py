@@ -5,6 +5,11 @@ from PyQt5.QtGui import QPixmap
 from pyshorteners import Shortener
 import qrcode
 import os
+import sys
+
+def GET_PATH(myPath):
+    return f''
+
 
 class TelaPrograma(QMainWindow):
     def __init__(self):
