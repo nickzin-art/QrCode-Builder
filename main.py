@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QPixmap
@@ -13,6 +13,7 @@ class TelaPrograma(QMainWindow):
         
         self.shortener = Shortener()
         self.btn_gear.clicked.connect(self.on_btn_gear_clicked)
+        #self.btn_save.clicked.connect(self.on_btnSalvar_clicked)
 
     def get_url(self):
         return self.insert_url.text()
@@ -26,20 +27,27 @@ class TelaPrograma(QMainWindow):
         img.save(caminho)
 
         pixmap = QPixmap(caminho)
-        url.lbl_qr.setPixmap(pixmap)
-        url.lbl_qr.setScaledContents(True)
+        self.lbl_qr.setPixmap(pixmap)
+        self.lbl_qr.setScaledContents(True)
+
 
     @pyqtSlot()
     def on_btn_gear_clicked(self):
+
+    
         valor = self.get_url()
         try:
             url_curta = self.shortener.tinyurl.short(valor)
             self.set_url_curta(url_curta)
-            # self.gerar_qrcode(url_curta)
+            self.gerar_qrcode(url_curta)
         except Exception as e:
             print(f"Erro ao gerar URL: {e}")
             self.set_url_curta("Erro: URL inválida")
-
+    
+    #@pyqtSlot()
+    #def on_btnSalvar_clicked(self, url_curta):
+        #self.gerar_qrcode(url_curta)
+        
 if __name__ == "__main__":
     app = QApplication([])
     tela = TelaPrograma()
